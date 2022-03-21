@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category1s",
+  "info": {
+    "name": "category1",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "blogs": {
+      "via": "category_1",
+      "collection": "blog"
+    },
+    "category_2s": {
+      "via": "category_1",
+      "collection": "category2"
+    }
+  }
+}
